@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Main {
 
@@ -5,8 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        testViewTodoList();
-
+        viewAddTodoList(new Scanner(System.in));
     }
 
     // ini adalah VIEW untuk menampilkan data
@@ -41,10 +41,11 @@ public class Main {
     }
 
     // ini adalah VIEW untuk menambahkan data
-    public static void viewAddTodoList() {
-
-        System.out.println("Menambahkan TodoList : ");
-
+    public static void viewAddTodoList(Scanner scanner) {
+        System.out.println("Menambahkan TodoList: ");
+        String input = scanner.nextLine();
+        model = tambahData(model, input);
+        viewTodoList(model);
     }
 
     // ini adalah VIEW untuk menghapus data
@@ -62,9 +63,21 @@ public class Main {
     }
 
     // ini adalah method untuk menambah data
-    public static void tambahData(String data) {
+    public static String[] tambahData(String[] model, String data) {
+        // Buat array baru
+        String[] newModel = new String[model.length + 1];
 
+        // Salin data lama ke array baru
+        System.arraycopy(model, 0, newModel, 0, model.length);
+
+        // Tambah data baru
+        newModel[model.length] = data;
+
+        return newModel;
     }
+
+    // Cara pakai:
+    // model = tambahData(model, data);
 
     // ini adalah method untuk menghapus data
     public static void hapusData(String data) {
