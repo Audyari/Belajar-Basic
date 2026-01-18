@@ -5,9 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        model = new String[] { "Audy", "Budi", "Citra", "Dewi", null, "" };
-
-        viewTodoList(model);
+        testViewTodoList();
 
     }
 
@@ -76,5 +74,29 @@ public class Main {
     // ini adalah method untuk update data
     public static void updateData(String data) {
 
+    }
+
+    // test view todo list
+    public static void testViewTodoList() {
+
+        // 1. Test Null Array
+        System.out.println("=== TEST 1: Data dari soal ===");
+        viewTodoList(new String[] { "Audy", "Budi", "Citra", "Dewi", null, "" });
+
+        // 2. Test Null Array
+        System.out.println("\n=== TEST 2: Null array ===");
+        viewTodoList(null);
+
+        // 3. Test Empty Array
+        System.out.println("\n=== TEST 3: Empty array ===");
+        viewTodoList(new String[] {});
+
+        // 4. Test All Null
+        System.out.println("\n=== TEST 4: All null ===");
+        viewTodoList(new String[] { null, null, null });
+
+        // 5. Test Mixed
+        System.out.println("\n=== TEST 5: Mixed ===");
+        viewTodoList(new String[] { null, "", "Valid", "   " });
     }
 }
