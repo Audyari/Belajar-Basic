@@ -1,7 +1,13 @@
+
 public class Main {
+
+    public static String[] model = {};
+
     public static void main(String[] args) {
 
-    System.out.println("Halo Audy");
+        model = new String[] { "Audy", "Budi", "Citra", "Dewi", "Eka" };
+
+        System.out.println(model[0]); // ini adalah mencetak tulisan
 
     }
 }
